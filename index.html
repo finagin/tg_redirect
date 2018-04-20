@@ -54,7 +54,8 @@
             .get("https://api.getproxylist.com/proxy", {
                 "protocol": [
                     "socks5"
-                ]
+                ],
+                "country": ["CA", "US", "DE"]
             })
             .done(function (response) {
                 setTimeout((function (_response) {
@@ -66,7 +67,23 @@
                 })(response), 1e3);
             })
             .fail(function () {
-                location.reload();
+                $
+                    .get("http://pubproxy.com/api/proxy", {
+                        "type": "socks5",
+                        "country": "DE"
+                    })
+                    .done(function (response) {
+                        setTimeout((function (_response) {
+                            var response = _response;
+
+                            return function () {
+                                location.href = "tg://socks?server=" + response.data[0].ip + "&port=" + response.data[0].port;
+                            };
+                        })(response), 1e3);
+                    })
+                    .fail(function () {
+                        location.reload();
+                    });
             });
     });
 </script>
