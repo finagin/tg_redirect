@@ -1,3 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>
+        Спасибо Игорёше😋
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:title" content="Спасибо Игорёше😋">
+    <meta property="og:image" content="img/favicon.png">
+
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-TileColor" content="#f5f5f5">
+    <meta name="theme-color" content="#f5f5f5">
+    <meta name="msapplication-TileImage" content="img/favicon.png">
+    <meta name="msapplication-square70x70logo" content="img/favicon.png">
+    <meta name="msapplication-square150x150logo" content="img/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+</head>
+<body>
+<section class="hero is-light is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h2 class="subtitle">
+                Скажи Игорёше
+            </h2>
+            <h1 class="title">
+                Спасибо😋
+            </h1>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="></script>
 <script>
-    location.href = "tg://socks" + location.search;
+    jQuery(function ($) {
+        $
+            .get("https://api.getproxylist.com/proxy", {
+                "protocol": [
+                    "socks5"
+                ]
+            })
+            .done(function (response) {
+                setTimeout((function (_response) {
+                    var response = _response;
+
+                    return function () {
+                        location.href = "tg://socks?server=" + response.ip + "&port=" + response.port;
+                    };
+                })(response), 1e3);
+            })
+            .fail(function () {
+                location.reload();
+            });
+    });
 </script>
+</body>
+</html>
